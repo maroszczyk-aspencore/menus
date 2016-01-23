@@ -79,6 +79,26 @@ class Builder
 	}
 
 	/**
+	 * Insert an item to the defined menu.
+	 *
+	 * @param  int          $index
+	 * @param  string       $title
+	 * @param  array|string $options
+	 *
+	 * @return Item
+	 */
+	public function insert($index, $title, $options = '')
+	{
+		$item = new Item($this, $this->id(), $title, $options);
+
+		$this->items->offsetSet($index, $item);
+
+		$this->lastId = $item->id;
+
+		return $item;
+	}
+
+	/**
 	 * Generate a unique ID for every item added to the menu.
 	 *
 	 * @return int
