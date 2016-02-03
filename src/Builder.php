@@ -91,7 +91,7 @@ class Builder
 	{
 		$item = new Item($this, $this->id(), $title, $options);
 
-		$this->items->offsetSet($index, $item);
+		$this->items->splice($index, 0, [$item]);
 
 		$this->lastId = $item->id;
 
